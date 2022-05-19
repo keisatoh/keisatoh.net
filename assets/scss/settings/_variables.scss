@@ -1,0 +1,32 @@
+// -------------------------------------------
+// Color
+// -------------------------------------------
+// base
+$base-color-primary: #F8F6F2;
+$base-color-secondary: #fafafa;
+
+// text color
+$text-color-primary: #202233;
+$text-color-secondary: #444;
+
+// key
+$key-color-black: #202233;
+
+// background
+$color-body-background: $base-color-primary;
+
+// -------------------------------------------
+// Typeface
+// -------------------------------------------
+$font-base: -apple-system, BlinkMacSystemFont, "Helvetica Neue", YuGothic, "ヒラギノ角ゴ ProN W3", Hiragino Kaku Gothic ProN, Arial, "メイリオ", Meiryo, sans-serif;
+
+// -------------------------------------------
+// BreakPoints
+// -------------------------------------------
+$breakpoints: (
+  'sm': 480px,
+  'md': 768px,
+  'lg': 1024px,
+  'xl': 1200px,
+  'xxl': 1440px,
+) !default;

@@ -1,0 +1,33 @@
+.container {
+  max-width: 780px;
+  // width: 80%;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  .container--lg {
+    max-width: 960px;
+  }
+}
+
+.childPageTitle {
+  font-size: rem(24);
+  text-align: center;
+  padding: 0.5em 0;
+  margin-top: 1em;
+  @include mq() {
+    font-size: rem(28);
+  }
+}
+
+.sectionPrimary {
+  margin-top: 2rem;
+}
+
+.headingPrimary {
+  font-family: $font-base;
+  font-size: rem(40);
+  font-weight: bold;
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 1em;
+}
