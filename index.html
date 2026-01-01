@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keisatoh</title>
+    <meta name="description" content="佐藤桂一郎 Keiichiro Sato のウェブサイト">
+    <link rel="icon" href="assets/favicon.ico">
+    <link rel="canonical" href="https://keisatoh.net/">
+    <style>
+      @layer variable, default, component;
+
+      @layer variable {
+        :root {
+          /* Text */
+          --text-small: 0.75rem;
+          --text-default: 0.8rem;
+          --text-medium: 1rem;
+          --text-large: 1.125rem;
+          --text-huge: 1.25rem;
+
+          /* Leading */
+          --leading-default: 1.4;
+
+          /* Space */
+          --space-v-tiny: 0.5rem;
+          --space-v-small: 1rem;
+          --space-v-default: 1.5rem;
+          --space-v-large: 2rem;
+          --space-v-huge: 3rem;
+          --space-h-small: 1rem;
+          --space-h-default: 2rem;
+
+          /* Color */
+          --color-bg: #FFFFFF;
+          --color-fg: #444;
+          --color-muted: #959595;
+
+          /* Container */
+          --container-max-width: 600px;
+        }
+      }
+
+      @layer default {
+
+        *,
+        *::before,
+        *::after {
+          box-sizing: border-box;
+        }
+
+        html {
+          background-color: var(--color-bg);
+          color: var(--color-fg);
+          font-family: system-ui, sans-serif;
+          font-size: var(--text-default);
+          line-height: var(--leading-default);
+          letter-spacing: 0.05em;
+        }
+
+        body {
+          margin: 0;
+        }
+
+        :is(img, svg) {
+          block-size: auto;
+          max-inline-size: 100%;
+          vertical-align: bottom;
+        }
+
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+
+        :is(h1, h2, h3, h4, h5, strong) {
+          font-weight: 400;
+        }
+
+        p {
+          margin-block: var(--space-v-small) 0;
+        }
+      }
+
+      @layer component {
+        .wrapper {
+          display: flex;
+          flex-direction: column;
+          min-block-size: 100svh;
+        }
+
+        .main {
+          flex: 1;
+          overflow-x: hidden;
+          padding-block-start: var(--space-v-large);
+        }
+
+        @media screen and (min-width: 768px) {
+          .main {
+            padding-block-start: calc(var(--space-v-large) * 2);
+          }
+        }
+
+        .container {
+          container-type: inline-size;
+          margin-inline: auto;
+          max-inline-size: var(--container-max-width);
+          padding-inline: var(--space-h-small);
+          text-align: start;
+        }
+
+        @media screen and (min-width: 480px) {
+          .container {
+            padding-inline: var(--space-h-default);
+          }
+        }
+
+        .sectionPrimary {
+          margin-block-start: var(--space-v-huge);
+
+          &:first-child {
+            margin-block-start: 0;
+          }
+
+          h2 {
+            font-size: var(--text-large);
+          }
+
+          p {
+            margin-block-start: var(--space-v-small);
+          }
+        }
+
+        .profile {
+          margin-block-start: 0;
+        }
+
+        .profile__name {
+          font-size: var(--text-huge);
+
+          &::before {
+            color: var(--color-muted);
+            content: '@';
+            margin-inline: 0 0.1em;
+          }
+        }
+
+        .profile__image {
+          inline-size: 100px;
+          margin-block-end: 1em;
+          margin-inline-start: 0;
+
+          img {
+            border-radius: 50%;
+          }
+        }
+
+        .links-grid {
+          display: grid;
+          gap: var(--space-v-default);
+          grid-template-columns: 1fr 1fr;
+          margin-block-start: 0;
+        }
+
+        @container (max-width: 480px) {
+          .links-grid {
+            grid-template-columns: 1fr;
+          }
+        }
+
+        .links {
+          margin-block-start: 0;
+        }
+
+        .links__name {
+          font-size: var(--text-medium);
+        }
+
+        .links__message {
+          color: var(--color-muted);
+          font-size: var(--text-small);
+        }
+
+        .footer {
+          background-color: var(--color-bg);
+          margin-block-start: auto;
+          padding-block: 1.5em;
+        }
+
+        .copyright {
+          font-size: 0.875rem;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <header class="header">
+      </header>
+      <main class="main">
+        <div class="container">
+          <section id="about" class="sectionPrimary">
+            <div class="profile">
+              <figure class="profile__image">
+                <img src="assets/prof.jpg" alt="Keiichiro Sato" />
+              </figure>
+              <h1 class="profile__name">keisatoh</h1>
+            </div>
+          </section>
+
+          <section id="profile" class="sectionPrimary">
+            <p>
+              佐藤 桂一郎 Keiichiro Sato<br>
+              1999年生まれ。ソフトウェアエンジニア見習い。つくるのが好きです
+            </p>
+          </section>
+
+          <section id="links" class="sectionPrimary">
+            <div class="links-grid">
+              <div class="links">
+                <h2 class="links__name">
+                  <a href="https://x.com/passincat">X</a>
+                </h2>
+                <p class="links__message">@passincat</p>
+              </div>
+              <div class="links">
+                <h2 class="links__name">
+                  <a href="https://github.com/keisatoh">GitHub</a>
+                </h2>
+                <p class="links__message">@keisatoh</p>
+              </div>
+              <div class="links">
+                <h2 class="links__name">
+                  <a href="https://blog.keisatoh.net/">Blog</a>
+                </h2>
+                <p class="links__message">blog.keisatoh.net</p>
+              </div>
+              <div class="links">
+                <h2 class="links__name">
+                  <a href="mailto:keisatoh999@gmail.com">Contact</a>
+                </h2>
+                <p class="links__message">keisatoh999@gmail.com</p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="footer">
+        <p class="copyright">
+          <small>© 2026 Keiichiro Sato</small>
+        </p>
+      </footer>
+    </div>
+  </body>
+
+</html>
