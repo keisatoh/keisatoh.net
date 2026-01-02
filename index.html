@@ -24,18 +24,17 @@
           --leading-default: 1.4;
 
           /* Space */
-          --space-v-tiny: 0.5rem;
           --space-v-small: 1rem;
           --space-v-default: 1.5rem;
           --space-v-large: 2rem;
           --space-v-huge: 3rem;
-          --space-h-small: 1rem;
           --space-h-default: 2rem;
 
           /* Color */
           --color-bg: #FFFFFF;
           --color-fg: #444;
           --color-muted: #959595;
+          --color-main: #3b8bff;
 
           /* Container */
           --container-max-width: 600px;
@@ -57,13 +56,15 @@
           font-size: var(--text-default);
           line-height: var(--leading-default);
           letter-spacing: 0.05em;
+          -webkit-text-size-adjust: 100%;
+          text-size-adjust: 100%;
         }
 
         body {
           margin: 0;
         }
 
-        :is(img, svg) {
+        img {
           block-size: auto;
           max-inline-size: 100%;
           vertical-align: bottom;
@@ -74,7 +75,7 @@
           text-decoration: none;
         }
 
-        :is(h1, h2, h3, h4, h5, strong) {
+        :is(h1, h2) {
           font-weight: 400;
         }
 
@@ -84,6 +85,8 @@
       }
 
       @layer component {
+
+        /* Layout */
         .wrapper {
           display: flex;
           flex-direction: column;
@@ -106,16 +109,11 @@
           container-type: inline-size;
           margin-inline: auto;
           max-inline-size: var(--container-max-width);
-          padding-inline: var(--space-h-small);
+          padding-inline: var(--space-h-default);
           text-align: start;
         }
 
-        @media screen and (min-width: 480px) {
-          .container {
-            padding-inline: var(--space-h-default);
-          }
-        }
-
+        /* Sections */
         .sectionPrimary {
           margin-block-start: var(--space-v-huge);
 
@@ -132,15 +130,20 @@
           }
         }
 
-        .profile {
-          margin-block-start: 0;
+        #profile {
+          margin-block-start: var(--space-v-default);
+
+          p {
+            color: var(--color-main);
+          }
         }
 
+        /* Profile */
         .profile__name {
           font-size: var(--text-huge);
+          color: var(--color-main);
 
           &::before {
-            color: var(--color-muted);
             content: '@';
             margin-inline: 0 0.1em;
           }
@@ -156,6 +159,7 @@
           }
         }
 
+        /* Links */
         .links-grid {
           display: grid;
           gap: var(--space-v-default);
@@ -169,12 +173,9 @@
           }
         }
 
-        .links {
-          margin-block-start: 0;
-        }
-
         .links__name {
           font-size: var(--text-medium);
+          color: var(--color-main);
         }
 
         .links__message {
@@ -182,8 +183,8 @@
           font-size: var(--text-small);
         }
 
+        /* Footer */
         .footer {
-          background-color: var(--color-bg);
           margin-block-start: auto;
           padding-block: 1.5em;
         }
@@ -191,6 +192,7 @@
         .copyright {
           font-size: 0.875rem;
           text-align: center;
+          color: var(--color-main);
         }
       }
     </style>
