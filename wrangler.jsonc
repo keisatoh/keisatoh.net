@@ -1,8 +1,7 @@
 {
-  "name": "keisatoh.net",
+  "name": "keisatoh-net",
   "compatibility_date": "2026-01-01",
   "assets": {
     "directory": "dist",
-    "binding": "ASSETS"
   }
 }
